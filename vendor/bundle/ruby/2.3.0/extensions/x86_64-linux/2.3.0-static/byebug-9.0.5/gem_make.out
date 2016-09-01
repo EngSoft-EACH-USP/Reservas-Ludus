@@ -1,0 +1,19 @@
+current directory: /root/git/GamesMenu/vendor/bundle/ruby/2.3.0/gems/byebug-9.0.5/ext/byebug
+/home/guhdias/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20160901-19108-10kbs13.rb extconf.rb
+creating Makefile
+
+current directory: /root/git/GamesMenu/vendor/bundle/ruby/2.3.0/gems/byebug-9.0.5/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /root/git/GamesMenu/vendor/bundle/ruby/2.3.0/gems/byebug-9.0.5/ext/byebug
+make "DESTDIR="
+compiling context.c
+compiling byebug.c
+compiling threads.c
+compiling locker.c
+compiling breakpoint.c
+linking shared-object byebug/byebug.so
+
+current directory: /root/git/GamesMenu/vendor/bundle/ruby/2.3.0/gems/byebug-9.0.5/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20160901-19108-6fh00j/byebug
