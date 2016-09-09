@@ -12,7 +12,7 @@ Criar um software que exibe os dados de jogos de tabuleiros, com suas regras, qu
 | Nome                           | N. USP |
 | ------------------------------ |:------:|
 | Cicero Leal                    | 8515972|
-| Gabriel Henrique da Silva Pinto| 6516010|
+| Gabriel Henrique da Silva Pinto| 8516010|
 | Gustavo Henrique Peres Dias    | 8138572|
 | Luiza Assis Pereira            |    X   |
 | Matheus Marinho Ribeiro        | 8921516|
