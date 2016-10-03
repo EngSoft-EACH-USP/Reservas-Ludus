@@ -1,8 +1,8 @@
-# GamesMenu
+# Reservas Ludus
 [![Code Climate](https://codeclimate.com/github/guhdias/GamesMenu/badges/gpa.svg)](https://codeclimate.com/github/guhdias/GamesMenu)
 [![Build Status](https://travis-ci.org/guhdias/GamesMenu.svg?branch=master)](https://travis-ci.org/guhdias/GamesMenu)
 
-Criar um software que exibe os dados de jogos de tabuleiros, com suas regras, quantidade de participantes e curiosidades.
+Criar um software que possibilita reserva de mesas eletrônicamente, com otimização de espaço, para o estabelecimento Ludus Luderia.
 
 - Pivotal Tracker: https://www.pivotaltracker.com/n/projects/1862739
 - Heroku: https://gamesmenu.herokuapp.com/
