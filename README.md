@@ -1,5 +1,5 @@
 # Reservas Ludus
-[![Code Climate](https://codeclimate.com/github/guhdias/GamesMenu/badges/gpa.svg)](https://codeclimate.com/github/guhdias/GamesMenu)
+[![Code Climate](https://codeclimate.com/github/guhdias/Reservas-Ludus/badges/gpa.svg)](https://codeclimate.com/github/guhdias/Reservas-Ludus)
 [![Build Status](https://travis-ci.org/guhdias/Reservas-Ludus.svg?branch=master)](https://travis-ci.org/guhdias/Reservas-Ludus)
 
 Criar um software que possibilita reserva de mesas eletrônicamente, com otimização de espaço, para o estabelecimento Ludus Luderia.
