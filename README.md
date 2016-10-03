@@ -5,7 +5,7 @@
 Criar um software que possibilita reserva de mesas eletrônicamente, com otimização de espaço, para o estabelecimento Ludus Luderia.
 
 - Pivotal Tracker: https://www.pivotaltracker.com/n/projects/1862739
-- Heroku: https://gamesmenu.herokuapp.com/
+- Heroku: https://reservas-ludus.herokuapp.com/
 
 ### Integrantes
 
