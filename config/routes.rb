@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
+  get 'reservas/index'
+
+  get 'welcome/index'
+
   resources :funcionarios
-  devise_for :usuarios
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
