@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @reserva.nome %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @reserva.email %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @reserva.telefone %>
+</p>
+
+<p>
+  <strong>Pessoas:</strong>
+  <%= @reserva.pessoas %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @reserva.data %>
+</p>
+
+<p>
+  <strong>Hora:</strong>
+  <%= @reserva.hora %>
+</p>
+
+<p>
+  <strong>Pne:</strong>
+  <%= @reserva.pne %>
+</p>
+
+<p>
+  <strong>Obs:</strong>
+  <%= @reserva.obs %>
+</p>
+
+<%= link_to 'Edit', edit_reserva_path(@reserva) %> |
+<%= link_to 'Back', reservas_path %>

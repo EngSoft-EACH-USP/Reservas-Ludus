@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  get 'reservas/list' => 'reservas#list'  
+  resources :reservas
+  
   get 'admin/index'
 
   get 'reservas/index'
+
 
   get 'welcome/index'
 
