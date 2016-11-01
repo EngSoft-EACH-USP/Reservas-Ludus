@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get 'admin/index'
 
   get 'reservas/index'
-
+  
+  post 'admin/home' => 'admin/home.html.erb'
 
   get 'welcome/index'
 
