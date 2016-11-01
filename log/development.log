@@ -4696,3 +4696,633 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8254779114294185445);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (80.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (27.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8254779114294185445)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'funcionarios'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reservas'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+Started GET "/" for 127.0.0.1 at 2016-11-01 17:12:00 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 13988ms (Views: 13967.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-01 17:12:20 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 94ms (Views: 59.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:12:22 -0200
+Processing by ReservasController#new as HTML
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from new at /root/git/Reservas-Ludus/app/controllers/reservas_controller.rb:22)
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (99.9ms)
+  Rendered reservas/new.html.erb within layouts/application (104.9ms)
+Completed 200 OK in 252ms (Views: 160.8ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/reservas/list" for 127.0.0.1 at 2016-11-01 17:12:24 -0200
+Processing by ReservasController#list as HTML
+  Rendering reservas/list.html.erb within layouts/application
+  [1m[36mReserva Load (37.2ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered reservas/list.html.erb within layouts/application (40.5ms)
+Completed 200 OK in 174ms (Views: 66.8ms | ActiveRecord: 37.2ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-01 17:12:28 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 101ms (Views: 69.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-01 17:12:33 -0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 93ms (Views: 91.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-01 17:12:35 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 110ms (Views: 108.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-01 17:35:46 -0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 575ms (Views: 562.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-01 17:35:47 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 70ms (Views: 68.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:35:53 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (23.1ms)
+  Rendered reservas/new.html.erb within layouts/application (27.5ms)
+Completed 200 OK in 111ms (Views: 95.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:35:58 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (15.8ms)
+  Rendered reservas/new.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 80ms (Views: 79.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:46:05 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (13.5ms)
+  Rendered reservas/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 2993ms (Views: 2992.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:46:33 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (12.7ms)
+  Rendered reservas/new.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 86ms (Views: 84.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-01 17:47:24 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 88ms (Views: 87.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-01 17:47:27 -0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 84ms (Views: 83.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-01 17:47:32 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 190ms (Views: 170.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-01 17:48:00 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 64ms (Views: 63.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:48:02 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (14.4ms)
+  Rendered reservas/new.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 66ms (Views: 64.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:49:11 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (15.8ms)
+  Rendered reservas/new.html.erb within layouts/application (16.9ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/root/git/Reservas-Ludus/app/views/reservas/_form.html.erb:45: syntax error, unexpected tCONSTANT, expecting ')'
+...f.label :Necessidades Especiais );@output_buffer.safe_append...
+...                               ^):
+  
+app/views/reservas/_form.html.erb:45: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/reservas/new.html.erb:3:in `_app_views_reservas_new_html_erb___715042159270459703_70121182451540'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.7ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.3ms)
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:49:21 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (6.8ms)
+  Rendered reservas/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 53ms (Views: 51.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:49:31 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (7.0ms)
+  Rendered reservas/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 48ms (Views: 47.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:49:49 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (7.0ms)
+  Rendered reservas/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 48ms (Views: 46.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:51:14 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (7.6ms)
+  Rendered reservas/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 2039ms (Views: 2037.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-01 17:51:22 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 51ms (Views: 50.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-01 17:51:23 -0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 64ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-01 17:51:26 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 67ms (Views: 65.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-01 17:51:28 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 63ms (Views: 61.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-01 17:54:10 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2047ms (Views: 2045.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-01 17:54:15 -0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 53ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-01 17:54:17 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 78ms (Views: 77.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:54:19 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (14.4ms)
+  Rendered reservas/new.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 81ms (Views: 79.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-01 17:56:56 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (0.9ms)
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:56:57 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (27.5ms)
+  Rendered reservas/new.html.erb within layouts/application (36.4ms)
+Completed 200 OK in 2340ms (Views: 2338.8ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1463ms (Views: 1458.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:56:59 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (10.6ms)
+  Rendered reservas/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 60ms (Views: 59.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:57:04 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (9.9ms)
+  Rendered reservas/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 52ms (Views: 51.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:57:25 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (7.1ms)
+  Rendered reservas/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 48ms (Views: 47.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:57:59 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (9.4ms)
+  Rendered reservas/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 1934ms (Views: 1933.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:58:28 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (10.2ms)
+  Rendered reservas/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 1907ms (Views: 1906.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:59:01 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (10.2ms)
+  Rendered reservas/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 1888ms (Views: 1886.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:59:12 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (7.8ms)
+  Rendered reservas/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 1947ms (Views: 1946.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:59:30 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (6.8ms)
+  Rendered reservas/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 1886ms (Views: 1884.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 17:59:55 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (8.0ms)
+  Rendered reservas/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 53ms (Views: 52.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 18:00:17 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (8.5ms)
+  Rendered reservas/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 51ms (Views: 49.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 18:00:31 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (7.2ms)
+  Rendered reservas/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 50ms (Views: 48.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-01 18:00:59 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 75ms (Views: 73.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-01 18:01:52 -0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 60ms (Views: 59.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-01 18:01:54 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (3.0ms)
+  Rendered reservas/index.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for(reserva) do |f| %>
+    2:   <% if reserva.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(reserva.errors.count, "erro") %> impediu essa reserva de ser salva:</h2>
+  
+app/views/reservas/_form.html.erb:1:in `_app_views_reservas__form_html_erb__374044141226145990_70121193166880'
+app/views/reservas/index.html.erb:6:in `_app_views_reservas_index_html_erb___2232779509109540921_70121472394440'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.0ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.7ms)
+Started GET "/reservas" for 127.0.0.1 at 2016-11-01 18:02:16 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 69ms (Views: 68.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-01 18:02:19 -0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 53ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-01 18:02:54 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (202.9ms)
+Completed 500 Internal Server Error in 253ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_reservas_path' for #<#<Class:0x0055730c74d158>:0x007f8fd4ba4f08>
+Did you mean?  new_reserva_path
+               new_reserva_url
+               edit_reserva_path):
+    3: <img src="http://www.ludusluderia.com.br/image/logo-ludus_252x213.png"/>
+    4: <h1>Bem Vindo(a) ao sistema de Reservas </h1>
+    5: <div id="btns">
+    6: 	<a class="btn" href="<%= new_reservas_path%>">Faça uma Reserva</a>
+    7: 	<a class="btn" href="<%= admin_index_path%>">Administrador</a>
+    8: </div>
+    9: </div>
+  
+app/views/welcome/index.html.erb:6:in `_app_views_welcome_index_html_erb___4399788231464467919_46976309293860'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.3ms)
+Started GET "/" for 127.0.0.1 at 2016-11-01 18:03:05 -0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3334ms (Views: 3333.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 18:03:11 -0200
+Processing by ReservasController#new as HTML
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from new at /root/git/Reservas-Ludus/app/controllers/reservas_controller.rb:22)
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (175.6ms)
+  Rendered reservas/new.html.erb within layouts/application (177.1ms)
+Completed 200 OK in 335ms (Views: 218.9ms | ActiveRecord: 79.2ms)
+
+
+Started GET "/reservas/list" for 127.0.0.1 at 2016-11-01 18:03:14 -0200
+Processing by ReservasController#list as HTML
+  Rendering reservas/list.html.erb within layouts/application
+  [1m[36mReserva Load (12.8ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered reservas/list.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 114ms (Views: 43.9ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-01 18:03:19 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 48ms (Views: 47.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-01 18:03:53 -0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.0ms)
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 18:03:55 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (33.3ms)
+  Rendered reservas/new.html.erb within layouts/application (46.5ms)
+Completed 200 OK in 3310ms (Views: 3308.9ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1685ms (Views: 1681.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 18:03:58 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (17.7ms)
+  Rendered reservas/new.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 110ms (Views: 109.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-01 18:04:02 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 82ms (Views: 80.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 18:04:08 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (14.7ms)
+  Rendered reservas/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 78ms (Views: 76.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/reservas" for 127.0.0.1 at 2016-11-01 18:04:12 -0200
+Processing by ReservasController#create as HTML
+  Parameters: {"utf8"=>"✓", "reserva"=>{"nome"=>"", "email"=>"", "telefone"=>"", "pessoas"=>"", "data(1i)"=>"2016", "data(2i)"=>"11", "data(3i)"=>"1", "hora(1i)"=>"2016", "hora(2i)"=>"11", "hora(3i)"=>"1", "hora(4i)"=>"20", "hora(5i)"=>"04", "pne"=>"0", "obs"=>""}, "commit"=>"Create Reserva"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (127.6ms)[0m  [1m[32mINSERT INTO "reservas" ("nome", "email", "telefone", "data", "hora", "pne", "obs", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nome", ""], ["email", ""], ["telefone", ""], ["data", Tue, 01 Nov 2016], ["hora", 2016-11-01 20:04:00 UTC], ["pne", false], ["obs", ""], ["created_at", 2016-11-01 20:04:12 UTC], ["updated_at", 2016-11-01 20:04:12 UTC]]
+  [1m[35m (126.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/reservas/2
+Completed 302 Found in 287ms (ActiveRecord: 254.2ms)
+
+
+Started GET "/reservas/2" for 127.0.0.1 at 2016-11-01 18:04:13 -0200
+Processing by ReservasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT  "reservas".* FROM "reservas" WHERE "reservas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reservas/show.html.erb within layouts/application
+  Rendered reservas/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 89ms (Views: 40.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-01 18:04:18 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 55ms (Views: 53.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 18:04:20 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (10.6ms)
+  Rendered reservas/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 64ms (Views: 62.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/list" for 127.0.0.1 at 2016-11-01 18:04:22 -0200
+Processing by ReservasController#list as HTML
+  Rendering reservas/list.html.erb within layouts/application
+  [1m[36mReserva Load (0.9ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered reservas/list.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 68ms (Views: 65.4ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/reservas/2" for 127.0.0.1 at 2016-11-01 18:04:26 -0200
+Processing by ReservasController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReserva Load (0.3ms)[0m  [1m[34mSELECT  "reservas".* FROM "reservas" WHERE "reservas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (24.6ms)[0m  [1m[31mDELETE FROM "reservas" WHERE "reservas"."id" = $1[0m  [["id", 2]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/reservas
+Completed 302 Found in 36ms (ActiveRecord: 31.0ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-01 18:04:26 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 47ms (Views: 46.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-01 18:04:30 -0200
+Processing by ReservasController#new as HTML
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (10.0ms)
+  Rendered reservas/new.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 64ms (Views: 62.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-01 18:04:30 -0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 61ms (Views: 60.0ms | ActiveRecord: 0.0ms)
+
+

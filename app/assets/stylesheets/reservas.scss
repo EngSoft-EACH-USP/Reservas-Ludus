@@ -1,3 +1,142 @@
 // Place all the styles related to the reservas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1{
+  margin: 30px 0px;
+}
+
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 30px;
+}
+
+.container_new_reserva {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  background: #F9F9F9;
+  padding: 25px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#new_reserva input[type="text"],
+#new_reserva input[type="number"],
+#new_reserva input[type="hidden"],
+#new_reserva textarea,
+#new_reserva input[type="submit"] {
+  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+#new_reserva {
+
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+#new_reserva input[type="text"],
+#new_reserva input[type="number"],
+#new_reserva input[type="hidden"],
+#new_reserva textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+
+#new_reserva input[type="text"]:hover,
+#new_reserva input[type="number"]:hover,
+#new_reserva input[type="hidden"]:hover,
+#new_reserva textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
+}
+
+#new_reserva textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
+}
+
+#new_reserva input[type="submit"] {
+  width: 100%;
+  margin: 0 0 5px;
+  height: 42px;
+  background: #ed1c24;
+  background-image: -webkit-linear-gradient(top, #ed1c24, #d00101);
+  background-image: -moz-linear-gradient(top, #ed1c24, #d00101);
+  background-image: -ms-linear-gradient(top, #ed1c24, #d00101);
+  background-image: -o-linear-gradient(top, #ed1c24, #d00101);
+  background-image: linear-gradient(to bottom, #ed1c24, #d00101);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+#new_reserva input[type="submit"]:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #bf0000, #cc0000);
+  background-image: -moz-linear-gradient(top, #bf0000, #cc0000);
+  background-image: -ms-linear-gradient(top, #bf0000, #cc0000);
+  background-image: -o-linear-gradient(top, #bf0000, #cc0000);
+  background-image: linear-gradient(to bottom, #bf0000, #cc0000);
+  text-decoration: none;
+}
+
+#new_reserva input[type="submit"]:visited {
+  color: white;
+  text-decoration: none;
+}
+
+#new_reserva input:focus,
+#new_reserva textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
+}
+
+::-webkit-input-placeholder {
+  color: #888;
+}
+
+:-moz-placeholder {
+  color: #888;
+}
+
+::-moz-placeholder {
+  color: #888;
+}
+
+:-ms-input-placeholder {
+  color: #888;
+}
