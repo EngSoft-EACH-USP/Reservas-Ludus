@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
+  resources :admins
   get 'reservas/list' => 'reservas#list'  
   resources :reservas
+  
+  resources :admins_sessions
+  match 'login' => 'admins_sessions#new', :via => [:get], as: :login
+  match 'logout' => 'admins_sessions#destroy', :via => [:get], as: :logout
   
   get 'admin/index'
 
   get 'reservas/index'
-  
-  post 'admin/home' => 'admin/home.html.erb'
 
   get 'welcome/index'
 

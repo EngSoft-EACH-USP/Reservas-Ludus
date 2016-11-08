@@ -1,0 +1,20 @@
+<%= form_tag admins_sessions_path, method: :post do %>
+<section class="container">
+			<section class="login-form">
+					<img src="http://www.ludusluderia.com.br/image/logo-ludus_252x213.png" style="margin-bottom:30px; margin-left: 75px;" class="img-responsive" alt="" />
+					<div class="field">
+            <%= text_field_tag :email, "", class:'form-control input-lg', placeholder: "E-mail", :required => true, type: "email"%>
+          </div>
+          <div class="field">
+            <%= text_field_tag :senha, "", class:'form-control input-lg', placeholder: "Senha", :required => true, type: "password" %>
+          </div>
+          <div class="actions">
+            <%= submit_tag 'Entrar', style:"border-radius: 8px;", class:"btn btn-lg btn-block" %>
+          </div>
+			</section>
+	</section>
+<% end %>
+
+<div class="form-links">
+	<a href="/">Reservas Ludus</a>
+</div>
