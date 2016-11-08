@@ -1,7 +1,7 @@
 <%= form_for(reserva) do |f| %>
   <% if reserva.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(reserva.errors.count, "error") %> prohibited this reserva from being saved:</h2>
+      <h2><%= pluralize(reserva.errors.count, "erro") %> impediu essa reserva de ser salva:</h2>
 
       <ul>
       <% reserva.errors.full_messages.each do |message| %>
@@ -42,12 +42,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :pne %>
+    <%= f.label :'Necessidades Especiais' %>
     <%= f.check_box :pne %>
   </div>
 
   <div class="field">
-    <%= f.label :obs %>
+    <%= f.label :observações %>
     <%= f.text_area :obs %>
   </div>
 
