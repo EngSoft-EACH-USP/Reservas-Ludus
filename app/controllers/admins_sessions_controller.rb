@@ -1,10 +1,13 @@
 class AdminsSessionsController < ApplicationController
+    @@adminId = 0
+    
     def new
         @admin = Admin.new
     end
     
     def create
         if login(params[:email],params[:senha])
+            session[:current_user_id] = @@adminId
             redirect_to("/admin/index")
         else
             redirect_to :back
@@ -12,7 +15,7 @@ class AdminsSessionsController < ApplicationController
     end
     
     def destroy
-        logout
+        reset_session
         redirect_to(:admins)
     end
     
@@ -20,6 +23,7 @@ class AdminsSessionsController < ApplicationController
         admins = Admin.all
         admins.each do |a|
             if a.email == email and a.senha == senha
+                @@adminId = a.id
                 return true
             end
         end
