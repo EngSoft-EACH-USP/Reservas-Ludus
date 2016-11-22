@@ -61,7 +61,7 @@ class ReservasController < ApplicationController
   def destroy
     @reserva.destroy
     respond_to do |format|
-      format.html { redirect_to reservas_url, notice: 'Reserva was successfully destroyed.' }
+      format.html { redirect_to admin_index_url, notice: 'Reserva was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

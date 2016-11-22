@@ -1,1 +1,41 @@
-<h1 style="color: #fff">Página do Administrador</h1>
+<center><h1 style="color: #fff">Página do Administrador</h1>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Reservas</h1></center>
+
+<table class="table-fill">
+  <thead>
+    <tr>
+      <th class="text-left">Nome</th>
+      <th class="text-left">Email</th>
+      <th class="text-left">Telefone</th>
+      <th class="text-left">Pessoas</th>
+      <th class="text-left">Data</th>
+      <th class="text-left">Hora</th>
+      <th class="text-left">Pne</th>
+      <th class="text-left">Obs</th>
+      <th class="text-left" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody class="table-hover">
+    <% @reservas.each do |reserva| %>
+      <tr>
+        <td class="text-left"><%= reserva.nome %></td>
+        <td class="text-left"><%= reserva.email %></td>
+        <td class="text-left"><%= reserva.telefone %></td>
+        <td class="text-left"><%= reserva.pessoas %></td>
+        <td class="text-left"><%= reserva.data %></td>
+        <td class="text-left"><%= reserva.hora %></td>
+        <td class="text-left"><%= reserva.pne %></td>
+        <td class="text-left"><%= reserva.obs %></td>
+        <td class="text-left"><%= link_to 'Show', reserva %></td>
+        <td class="text-left"><%= link_to 'Edit', edit_reserva_path(reserva) %></td>
+        <td class="text-left"><%= link_to 'Destroy', reserva, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

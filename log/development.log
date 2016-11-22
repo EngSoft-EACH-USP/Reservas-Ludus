@@ -6346,3 +6346,872 @@ Processing by AdminController#index as HTML
 Completed 200 OK in 60ms (Views: 58.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2016-11-21 21:25:10 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 634ms (Views: 595.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-21 21:25:13 -0200
+Processing by ReservasController#new as HTML
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from new at /root/git/Reservas-Ludus/app/controllers/reservas_controller.rb:22)
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (307.8ms)
+  Rendered reservas/new.html.erb within layouts/application (309.2ms)
+Completed 200 OK in 458ms (Views: 407.7ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/reservas" for 127.0.0.1 at 2016-11-21 21:25:29 -0200
+Processing by ReservasController#create as HTML
+  Parameters: {"utf8"=>"✓", "reserva"=>{"nome"=>"Teste", "email"=>"Teste", "telefone"=>"Teste", "pessoas"=>"5", "data(1i)"=>"2016", "data(2i)"=>"11", "data(3i)"=>"21", "hora(1i)"=>"2016", "hora(2i)"=>"11", "hora(3i)"=>"21", "hora(4i)"=>"23", "hora(5i)"=>"25", "pne"=>"1", "obs"=>"teste"}, "commit"=>"Create Reserva"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (53.1ms)[0m  [1m[32mINSERT INTO "reservas" ("nome", "email", "telefone", "pessoas", "data", "hora", "pne", "obs", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["nome", "Teste"], ["email", "Teste"], ["telefone", "Teste"], ["pessoas", 5], ["data", Mon, 21 Nov 2016], ["hora", 2016-11-21 23:25:00 UTC], ["pne", true], ["obs", "teste"], ["created_at", 2016-11-21 23:25:29 UTC], ["updated_at", 2016-11-21 23:25:29 UTC]]
+  [1m[35m (78.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/reservas/1
+Completed 302 Found in 150ms (ActiveRecord: 132.2ms)
+
+
+Started GET "/reservas/1" for 127.0.0.1 at 2016-11-21 21:25:30 -0200
+Processing by ReservasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReserva Load (0.3ms)[0m  [1m[34mSELECT  "reservas".* FROM "reservas" WHERE "reservas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reservas/show.html.erb within layouts/application
+  Rendered reservas/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 100ms (Views: 67.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 21:25:35 -0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 121ms (Views: 119.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2016-11-21 21:25:36 -0200
+Processing by AdminsController#index as HTML
+  Rendering admins/index.html.erb within layouts/application
+  Rendered admins/_form.html.erb (2.9ms)
+  Rendered admins/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 108ms (Views: 84.0ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/admins_sessions" for 127.0.0.1 at 2016-11-21 21:25:41 -0200
+Processing by AdminsSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>"admin@admin.com", "senha"=>"123456", "commit"=>"Entrar"}
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+Redirected to http://localhost:3000/admin/index
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:25:41 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (25.4ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    20:   </thead>
+    21: 
+    22:   <tbody>
+    23:     <% @reservas.each do |reserva| %>
+    24:       <tr>
+    25:         <td><%= reserva.nome %></td>
+    26:         <td><%= reserva.email %></td>
+  
+app/views/admin/index.html.erb:23:in `_app_views_admin_index_html_erb___2154002909779073184_70129053334560'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.3ms)
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:26:37 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    20:   </thead>
+    21: 
+    22:   <tbody>
+    23:     <% @reservas.each do |reserva| %>
+    24:       <tr>
+    25:         <td><%= reserva.nome %></td>
+    26:         <td><%= reserva.email %></td>
+  
+app/views/admin/index.html.erb:23:in `_app_views_admin_index_html_erb___590846622986973383_70092529405860'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.8ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.2ms)
+Started PUT "/__web_console/repl_sessions/d70b887219e12a12b4924ff2cc7c191f" for 127.0.0.1 at 2016-11-21 21:26:57 -0200
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:26:58 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 261ms (Views: 259.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/logouy" for 127.0.0.1 at 2016-11-21 21:28:19 -0200
+  
+ActionController::RoutingError (No route matches [GET] "/logouy"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.1) lib/puma/configuration.rb:225:in `call'
+puma (3.6.1) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.1) lib/puma/server.rb:415:in `process_client'
+puma (3.6.1) lib/puma/server.rb:275:in `block in run'
+puma (3.6.1) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered collection of /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [40 times] (67.5ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (36.1ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (150.6ms)
+Started GET "/logout" for 127.0.0.1 at 2016-11-21 21:28:21 -0200
+Processing by AdminsSessionsController#destroy as HTML
+Redirected to http://localhost:3000/admins
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2016-11-21 21:28:21 -0200
+Processing by AdminsController#index as HTML
+  Rendering admins/index.html.erb within layouts/application
+  Rendered admins/_form.html.erb (1.9ms)
+  Rendered admins/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 122ms (Views: 90.8ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:28:25 -0200
+Processing by AdminController#index as HTML
+Redirected to http://localhost:3000/admins
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2016-11-21 21:28:25 -0200
+Processing by AdminsController#index as HTML
+  Rendering admins/index.html.erb within layouts/application
+  Rendered admins/_form.html.erb (1.3ms)
+  Rendered admins/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 72ms (Views: 69.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins_sessions" for 127.0.0.1 at 2016-11-21 21:30:02 -0200
+Processing by AdminsSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>"admin@admin.com", "senha"=>"123456", "commit"=>"Entrar"}
+  [1m[36mAdmin Load (1.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+Redirected to http://localhost:3000/admin/index
+Completed 302 Found in 23ms (ActiveRecord: 6.9ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:30:02 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    20:   </thead>
+    21: 
+    22:   <tbody>
+    23:     <% @reservas.each do |reserva| %>
+    24:       <tr>
+    25:         <td><%= reserva.nome %></td>
+    26:         <td><%= reserva.email %></td>
+  
+app/views/admin/index.html.erb:23:in `_app_views_admin_index_html_erb___590846622986973383_70092425634920'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (28.3ms)
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:37:00 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 50ms (Views: 46.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:39:14 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.9ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from _app_views_admin_index_html_erb___590846622986973383_70092531074640 at /root/git/Reservas-Ludus/app/views/admin/index.html.erb:23)
+  Rendered admin/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 70ms (Views: 60.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:48:19 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (1.4ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 5811ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: compass/css3.
+Load paths:
+  /root/git/Reservas-Ludus/app/assets/config
+  /root/git/Reservas-Ludus/app/assets/images
+  /root/git/Reservas-Ludus/app/assets/javascripts
+  /root/git/Reservas-Ludus/app/assets/stylesheets
+  /root/git/Reservas-Ludus/vendor/assets/javascripts
+  /root/git/Reservas-Ludus/vendor/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/rails-assets-tether-1.1.1/app/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/rails-assets-tether-1.1.1/app/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/jquery-rails-4.2.1/vendor/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/coffee-rails-4.2.1/lib/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actioncable-5.0.0.1/lib/assets/compiled
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.0.0/lib/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/stylesheets):
+    4:     <title>Reservas-Ludus</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/reservas.scss:6
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__2998382972777625816_70092475048380'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.4ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (16.7ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (55.7ms)
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:52:11 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.6ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from _app_views_admin_index_html_erb__4054978118229661302_70285068102120 at /root/git/Reservas-Ludus/app/views/admin/index.html.erb:23)
+  Rendered admin/index.html.erb within layouts/application (23.2ms)
+Completed 500 Internal Server Error in 580ms (ActiveRecord: 4.4ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: compass/css3.
+Load paths:
+  /root/git/Reservas-Ludus/app/assets/config
+  /root/git/Reservas-Ludus/app/assets/images
+  /root/git/Reservas-Ludus/app/assets/javascripts
+  /root/git/Reservas-Ludus/app/assets/stylesheets
+  /root/git/Reservas-Ludus/vendor/assets/javascripts
+  /root/git/Reservas-Ludus/vendor/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/rails-assets-tether-1.1.1/app/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/rails-assets-tether-1.1.1/app/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/jquery-rails-4.2.1/vendor/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/coffee-rails-4.2.1/lib/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actioncable-5.0.0.1/lib/assets/compiled
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.0.0/lib/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/stylesheets):
+    4:     <title>Reservas-Ludus</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/reservas.scss:6
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__3731822255808811856_70285068229880'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.5ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.7ms)
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:52:14 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: compass/css3.
+Load paths:
+  /root/git/Reservas-Ludus/app/assets/config
+  /root/git/Reservas-Ludus/app/assets/images
+  /root/git/Reservas-Ludus/app/assets/javascripts
+  /root/git/Reservas-Ludus/app/assets/stylesheets
+  /root/git/Reservas-Ludus/vendor/assets/javascripts
+  /root/git/Reservas-Ludus/vendor/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/rails-assets-tether-1.1.1/app/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/rails-assets-tether-1.1.1/app/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/jquery-rails-4.2.1/vendor/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/coffee-rails-4.2.1/lib/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actioncable-5.0.0.1/lib/assets/compiled
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.0.0/lib/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/stylesheets):
+    4:     <title>Reservas-Ludus</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/reservas.scss:6
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__3731822255808811856_70285093030760'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.3ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.4ms)
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:52:17 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: compass/css3.
+Load paths:
+  /root/git/Reservas-Ludus/app/assets/config
+  /root/git/Reservas-Ludus/app/assets/images
+  /root/git/Reservas-Ludus/app/assets/javascripts
+  /root/git/Reservas-Ludus/app/assets/stylesheets
+  /root/git/Reservas-Ludus/vendor/assets/javascripts
+  /root/git/Reservas-Ludus/vendor/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/rails-assets-tether-1.1.1/app/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/rails-assets-tether-1.1.1/app/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/jquery-rails-4.2.1/vendor/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/coffee-rails-4.2.1/lib/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actioncable-5.0.0.1/lib/assets/compiled
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.0.0/lib/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/stylesheets):
+    4:     <title>Reservas-Ludus</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/reservas.scss:6
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__3731822255808811856_70285094696040'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.2ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.4ms)
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:53:27 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.6ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from _app_views_admin_index_html_erb___1470437344892430915_70164169686420 at /root/git/Reservas-Ludus/app/views/admin/index.html.erb:23)
+  Rendered admin/index.html.erb within layouts/application (23.5ms)
+Completed 500 Internal Server Error in 2179ms (ActiveRecord: 4.6ms)
+
+
+  
+ActionView::Template::Error (Undefined mixin 'border-radius'.):
+    4:     <title>Reservas-Ludus</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/reservas.scss:153:in `border-radius'
+app/assets/stylesheets/reservas.scss:153
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__2089633768455683730_70164169783320'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.3ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.6ms)
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:54:55 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.6ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from _app_views_admin_index_html_erb__2248657746699041790_70252820628580 at /root/git/Reservas-Ludus/app/views/admin/index.html.erb:23)
+  Rendered admin/index.html.erb within layouts/application (24.2ms)
+Completed 500 Internal Server Error in 2147ms (ActiveRecord: 5.1ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: compass/css3.
+Load paths:
+  /root/git/Reservas-Ludus/app/assets/config
+  /root/git/Reservas-Ludus/app/assets/images
+  /root/git/Reservas-Ludus/app/assets/javascripts
+  /root/git/Reservas-Ludus/app/assets/stylesheets
+  /root/git/Reservas-Ludus/vendor/assets/javascripts
+  /root/git/Reservas-Ludus/vendor/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/rails-assets-tether-1.1.1/app/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/rails-assets-tether-1.1.1/app/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/jquery-rails-4.2.1/vendor/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/coffee-rails-4.2.1/lib/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actioncable-5.0.0.1/lib/assets/compiled
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.0.0/lib/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/stylesheets):
+    4:     <title>Reservas-Ludus</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/reservas.scss:6
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___737616395394029702_70252820754760'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (14.3ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.7ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (45.0ms)
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:55:29 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 956ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: compass.
+Load paths:
+  /root/git/Reservas-Ludus/app/assets/config
+  /root/git/Reservas-Ludus/app/assets/images
+  /root/git/Reservas-Ludus/app/assets/javascripts
+  /root/git/Reservas-Ludus/app/assets/stylesheets
+  /root/git/Reservas-Ludus/vendor/assets/javascripts
+  /root/git/Reservas-Ludus/vendor/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/rails-assets-tether-1.1.1/app/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/rails-assets-tether-1.1.1/app/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/jquery-rails-4.2.1/vendor/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/coffee-rails-4.2.1/lib/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actioncable-5.0.0.1/lib/assets/compiled
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.0.0/lib/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/stylesheets
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/javascripts
+  /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-4.0.0.alpha5/assets/stylesheets):
+    4:     <title>Reservas-Ludus</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/reservas.scss:6
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___737616395394029702_70252713049360'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.2ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.8ms)
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:56:45 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 945ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "...der-radius(5px)": expected "{", was ";"):
+    4:     <title>Reservas-Ludus</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/reservas.scss:153
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___737616395394029702_70252820674160'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.0ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.4ms)
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 21:57:11 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 2553ms (Views: 2550.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:02:11 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (1.2ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 2136ms (Views: 2133.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:02:43 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.8ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 64ms (Views: 62.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:03:07 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.4ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 1975ms (Views: 1972.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:03:14 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.7ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 1995ms (Views: 1993.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:03:56 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (3.7ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 1969ms (Views: 1963.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:04:05 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (1.1ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 1971ms (Views: 1969.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:04:24 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 1957ms (Views: 1955.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:04:39 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 2015ms (Views: 2013.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:04:53 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 1984ms (Views: 1982.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:05:04 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.6ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 1992ms (Views: 1990.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:05:21 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 2077ms (Views: 2075.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:07:25 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.4ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 2011ms (Views: 2009.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:07:45 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 1928ms (Views: 1926.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:07:57 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 1963ms (Views: 1961.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:09:08 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.4ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 2541ms (Views: 2539.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:10:33 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.6ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 2223ms (Views: 2221.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:11:09 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.4ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 2069ms (Views: 2067.1ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/reservas/1" for 127.0.0.1 at 2016-11-21 22:15:43 -0200
+Processing by ReservasController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReserva Load (39.8ms)[0m  [1m[34mSELECT  "reservas".* FROM "reservas" WHERE "reservas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (28.7ms)[0m  [1m[31mDELETE FROM "reservas" WHERE "reservas"."id" = $1[0m  [["id", 1]]
+  [1m[35m (28.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/reservas
+Completed 302 Found in 478ms (ActiveRecord: 134.9ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-21 22:15:44 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 120ms (Views: 69.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:15:53 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.8ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 87ms (Views: 84.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 22:18:04 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 4288ms (Views: 4225.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/new" for 127.0.0.1 at 2016-11-21 22:18:10 -0200
+Processing by ReservasController#new as HTML
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from new at /root/git/Reservas-Ludus/app/controllers/reservas_controller.rb:22)
+  Rendering reservas/new.html.erb within layouts/application
+  Rendered reservas/_form.html.erb (116.7ms)
+  Rendered reservas/new.html.erb within layouts/application (119.8ms)
+Completed 200 OK in 413ms (Views: 210.1ms | ActiveRecord: 34.6ms)
+
+
+Started POST "/reservas" for 127.0.0.1 at 2016-11-21 22:18:19 -0200
+Processing by ReservasController#create as HTML
+  Parameters: {"utf8"=>"✓", "reserva"=>{"nome"=>"Teste", "email"=>"Teste", "telefone"=>"Teste", "pessoas"=>"-2", "data(1i)"=>"2018", "data(2i)"=>"12", "data(3i)"=>"22", "hora(1i)"=>"2016", "hora(2i)"=>"11", "hora(3i)"=>"22", "hora(4i)"=>"01", "hora(5i)"=>"19", "pne"=>"0", "obs"=>""}, "commit"=>"Create Reserva"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (22.3ms)[0m  [1m[32mINSERT INTO "reservas" ("nome", "email", "telefone", "pessoas", "data", "hora", "pne", "obs", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["nome", "Teste"], ["email", "Teste"], ["telefone", "Teste"], ["pessoas", -2], ["data", Sat, 22 Dec 2018], ["hora", 2016-11-22 01:19:00 UTC], ["pne", false], ["obs", ""], ["created_at", 2016-11-22 00:18:19 UTC], ["updated_at", 2016-11-22 00:18:19 UTC]]
+  [1m[35m (17.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/reservas/2
+Completed 302 Found in 55ms (ActiveRecord: 39.9ms)
+
+
+Started GET "/reservas/2" for 127.0.0.1 at 2016-11-21 22:18:19 -0200
+Processing by ReservasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReserva Load (0.3ms)[0m  [1m[34mSELECT  "reservas".* FROM "reservas" WHERE "reservas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reservas/show.html.erb within layouts/application
+  Rendered reservas/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 83ms (Views: 56.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/reservas" for 127.0.0.1 at 2016-11-21 22:18:27 -0200
+Processing by ReservasController#index as HTML
+  Rendering reservas/index.html.erb within layouts/application
+  Rendered reservas/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 135ms (Views: 134.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservas/list" for 127.0.0.1 at 2016-11-21 22:18:29 -0200
+Processing by ReservasController#list as HTML
+  Rendering reservas/list.html.erb within layouts/application
+  [1m[36mReserva Load (0.4ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered reservas/list.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 143ms (Views: 99.5ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/reservas/2" for 127.0.0.1 at 2016-11-21 22:18:35 -0200
+Processing by ReservasController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReserva Load (0.7ms)[0m  [1m[34mSELECT  "reservas".* FROM "reservas" WHERE "reservas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "reservas" WHERE "reservas"."id" = $1[0m  [["id", 2]]
+  [1m[35m (13.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/index
+Completed 302 Found in 19ms (ActiveRecord: 15.3ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-21 22:18:35 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.6ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 60ms (Views: 57.9ms | ActiveRecord: 0.6ms)
+
+
