@@ -33,7 +33,7 @@ class ReservasController < ApplicationController
 
     respond_to do |format|
       if @reserva.save
-        format.html { redirect_to @reserva, notice: 'Reserva was successfully created.' }
+        format.html { redirect_to @reserva, notice: 'Reserva solicitada com sucesso. Aguarde nosso contato por telefone para cofirmação.' }
         format.json { render :show, status: :created, location: @reserva }
       else
         format.html { render :new }

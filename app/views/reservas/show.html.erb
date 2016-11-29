@@ -1,4 +1,17 @@
-<p id="notice"><%= notice %></p>
+</br>
+
+<div class="container_new_reserva">
+
+<center><h4><p id="notice"><%= notice %></p></center></h4>
+<% if !notice %>
+<center><h3>Reserva: <%= @reserva.id %></center></h3>
+<% end %>
+
+</div>
+
+</br>
+
+<div class="container_new_reserva">
 
 <p>
   <strong>Nome:</strong>
@@ -16,7 +29,7 @@
 </p>
 
 <p>
-  <strong>Pessoas:</strong>
+  <strong>Número de Pessoas:</strong>
   <%= @reserva.pessoas %>
 </p>
 
@@ -31,14 +44,16 @@
 </p>
 
 <p>
-  <strong>Pne:</strong>
+  <strong>Necessidades Especiais:</strong>
   <%= @reserva.pne %>
 </p>
 
 <p>
-  <strong>Obs:</strong>
+  <strong>Observação:</strong>
   <%= @reserva.obs %>
 </p>
 
-<%= link_to 'Edit', edit_reserva_path(@reserva) %> |
-<%= link_to 'Back', reservas_path %>
+<center><%= link_to 'Home', root_path %></center>
+
+</div>
+
