@@ -13,8 +13,7 @@
       <th class="text-left">Pessoas</th>
       <th class="text-left">Data</th>
       <th class="text-left">Hora</th>
-      <th class="text-left">Pne</th>
-      <th class="text-left">Obs</th>
+      <th class="text-left">PNE</th>
       <th class="text-left" colspan="3"></th>
     </tr>
   </thead>
@@ -26,13 +25,16 @@
         <td class="text-left"><%= reserva.email %></td>
         <td class="text-left"><%= reserva.telefone %></td>
         <td class="text-left"><%= reserva.pessoas %></td>
-        <td class="text-left"><%= reserva.data %></td>
-        <td class="text-left"><%= reserva.hora %></td>
-        <td class="text-left"><%= reserva.pne %></td>
-        <td class="text-left"><%= reserva.obs %></td>
-        <td class="text-left"><%= link_to 'Show', reserva %></td>
-        <td class="text-left"><%= link_to 'Edit', edit_reserva_path(reserva) %></td>
-        <td class="text-left"><%= link_to 'Destroy', reserva, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="text-left"><%= reserva.data.to_time.strftime('%d/%m/%Y') %></td>
+        <td class="text-left"><%= reserva.hora.to_time.strftime('%H:%M') %></td>
+	<% if reserva.pne %>
+        <td class="text-left">Sim</td>
+	<% else %>
+	<td class="text-left">Não</td>
+	<% end %>
+        <td class="text-left"><%= link_to 'Detalhar', reserva %></td>
+        <td class="text-left"><%= link_to 'Editar', edit_reserva_path(reserva) %></td>
+        <td class="text-left"><%= link_to 'Excluir', reserva, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -8128,3 +8128,137 @@ Processing by AdminController#index as HTML
 Completed 200 OK in 52ms (Views: 48.9ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/admins" for 127.0.0.1 at 2016-11-29 15:44:09 -0200
+Processing by AdminsController#index as HTML
+  Rendering admins/index.html.erb within layouts/application
+  Rendered admins/_form.html.erb (13.1ms)
+  Rendered admins/index.html.erb within layouts/application (58.6ms)
+Started POST "/admins_sessions" for 127.0.0.1 at 2016-11-29 15:44:09 -0200
+Processing by AdminsSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>"admin@admin.com", "senha"=>"123456", "commit"=>"Entrar"}
+Started GET "/admins" for 127.0.0.1 at 2016-11-29 15:44:09 -0200
+  [1m[36mAdmin Load (87.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+Processing by AdminsController#index as HTML
+Redirected to http://localhost:3000/admin/index
+  Rendering admins/index.html.erb within layouts/application
+Completed 302 Found in 222ms (ActiveRecord: 87.0ms)
+
+
+  Rendered admins/_form.html.erb (1.4ms)
+  Rendered admins/index.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 1101ms (Views: 1062.6ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 627ms (Views: 626.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins_sessions" for 127.0.0.1 at 2016-11-29 15:44:12 -0200
+Processing by AdminsSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>"admin@admin.com", "senha"=>"123456", "commit"=>"Entrar"}
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+Redirected to http://localhost:3000/admin/index
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-29 15:44:12 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.4ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (144.8ms)
+Completed 200 OK in 190ms (Views: 188.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-29 15:44:19 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 81ms (Views: 79.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-29 15:44:35 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.6ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 49ms (Views: 47.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/reservas/11" for 127.0.0.1 at 2016-11-29 15:44:36 -0200
+Processing by ReservasController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mReserva Load (11.1ms)[0m  [1m[34mSELECT  "reservas".* FROM "reservas" WHERE "reservas"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reservas/show.html.erb within layouts/application
+  Rendered reservas/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 87ms (Views: 53.9ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-29 15:44:46 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.8ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 54ms (Views: 52.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-29 15:46:53 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (2.3ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 53ms (Views: 49.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-29 15:47:21 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (2.9ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 52ms (Views: 47.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-29 15:49:38 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/root/git/Reservas-Ludus/app/views/admin/index.html.erb:30: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...uffer.append=( if reserva.pne );@output_buffer.safe_append='
+...                               ^
+/root/git/Reservas-Ludus/app/views/admin/index.html.erb:32: syntax error, unexpected keyword_else
+	'.freeze;@output_buffer.append=( else );@output_buffer.safe_append='
+	                                     ^
+/root/git/Reservas-Ludus/app/views/admin/index.html.erb:34: syntax error, unexpected keyword_end
+	'.freeze;@output_buffer.append=( end );@output_buffer.safe_append='
+	                                    ^
+/root/git/Reservas-Ludus/app/views/admin/index.html.erb:39: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;     end 
+                 ^
+/root/git/Reservas-Ludus/app/views/admin/index.html.erb:45: syntax error, unexpected keyword_ensure, expecting ')'
+/root/git/Reservas-Ludus/app/views/admin/index.html.erb:47: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/admin/index.html.erb:30: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+app/views/admin/index.html.erb:32: syntax error, unexpected keyword_else
+app/views/admin/index.html.erb:34: syntax error, unexpected keyword_end
+app/views/admin/index.html.erb:39: syntax error, unexpected keyword_end, expecting ')'
+app/views/admin/index.html.erb:45: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/admin/index.html.erb:47: syntax error, unexpected keyword_end, expecting ')'
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.8ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendering /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/guhdias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.8ms)
+Started GET "/admin/index" for 127.0.0.1 at 2016-11-29 15:50:30 -0200
+Processing by AdminController#index as HTML
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mReserva Load (0.5ms)[0m  [1m[34mSELECT "reservas".* FROM "reservas"[0m
+  Rendered admin/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 56ms (Views: 53.8ms | ActiveRecord: 0.5ms)
+
+
